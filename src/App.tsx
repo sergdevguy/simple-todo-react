@@ -1,4 +1,4 @@
-import './App.css'
+import './App.scss'
 import { Todo } from './Todo'
 
 export function App() {
