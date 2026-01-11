@@ -4,14 +4,14 @@ import { TaskList } from './TaskList'
 import type { TaskType } from './types'
 import { createTask } from './utils'
 
-const TESTS_TASKS = [
+const TEST_TASKS = [
 	createTask('read some book', true),
 	createTask('listen music'),
 	createTask('hard work')
 ]
 
 export function Todo() {
-	const [tasks, setTasks] = useState<TaskType[]>(TESTS_TASKS)
+	const [tasks, setTasks] = useState<TaskType[]>(TEST_TASKS)
 
 	const pendingTasks = tasks.filter(task => !task.completed)
 	const finishedTasks = tasks.filter(task => task.completed)
