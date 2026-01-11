@@ -1,6 +1,6 @@
 import type { TaskProps } from './types'
 
-export function Task({ task, removeTask, completeTask }: TaskProps) {
+export function Task({ task, onComplete, onRemove }: TaskProps) {
 	return (
 		<div className="task">
 			<div className="task__main">
@@ -10,13 +10,13 @@ export function Task({ task, removeTask, completeTask }: TaskProps) {
 					id={`completed-${task.id}`}
 					checked={task.completed}
 					className="task__checkbox"
-					onChange={() => completeTask(task.id)}
+					onChange={() => onComplete(task.id)}
 				/>
 				<p className="task__label">{task.text}</p>
 			</div>
 			<button
 				className="task__delete-btn"
-				onClick={() => removeTask(task.id)}
+				onClick={() => onRemove(task.id)}
 			>
 				&#128465;
 			</button>
