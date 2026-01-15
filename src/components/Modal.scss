@@ -1,0 +1,43 @@
+.modal {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100vw;
+	height: 100vh;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	background: rgb(191, 209, 234, 0.7);
+	z-index: 100;
+	backdrop-filter: blur(1.5px);
+
+	&__content {
+		position: relative;
+		max-width: 400px;
+		width: 100%;
+		padding: 20px;
+		border-radius: 10px;
+		background: #ffffff;
+	}
+
+	&__close {
+		position: absolute;
+		top: -12px;
+		right: -12px;
+		width: 30px;
+		height: 30px;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		border-radius: 50%;
+		border: none;
+		background: #ffffff;
+		box-shadow: 0 6px 10px #cdddf2;
+		background: linear-gradient(#add0fa, #81ade5);
+		transition: all 0.1s linear;
+
+		&:hover {
+			transform: scale(1.05);
+		}
+	}
+}

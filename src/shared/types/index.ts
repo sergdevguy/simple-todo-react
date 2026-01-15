@@ -1,5 +1,5 @@
 export type CreateTaskBarProps = {
-	addTask: (task: string) => void
+	addTask: (task: string, tag: string) => void
 }
 
 export type TaskListProps = {
@@ -18,4 +18,7 @@ export type TaskType = {
 	id: string
 	text: string
 	completed: boolean
+	createdAt: string
+	tagName: string
+	priority: 'low' | 'medium' | 'high'
 }

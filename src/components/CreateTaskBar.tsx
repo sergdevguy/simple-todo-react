@@ -1,11 +1,13 @@
+import type { CreateTaskBarProps } from '@/shared/types'
 import { useState } from 'react'
-import type { CreateTaskBarProps } from './types'
+import './CreateTaskBar.scss'
 
 export function CreateTaskBar({ addTask }: CreateTaskBarProps) {
 	const [task, setTask] = useState('')
+	const [tag, setTag] = useState('')
 
 	function addTaskHandler() {
-		addTask(task)
+		addTask(task, tag)
 		setTask('')
 	}
 
@@ -13,17 +15,24 @@ export function CreateTaskBar({ addTask }: CreateTaskBarProps) {
 		<div className="create-task-bar">
 			<input
 				type="text"
-				placeholder="create your task here..."
+				placeholder="Create your task..."
 				className="create-task-bar__input"
 				onChange={e => setTask(e.target.value)}
 				value={task}
+			/>
+			<input
+				type="text"
+				placeholder="Task tag..."
+				className="create-task-bar__input"
+				onChange={e => setTag(e.target.value)}
+				value={tag}
 			/>
 			<button
 				className="create-task-bar__button"
 				onClick={addTaskHandler}
 				disabled={!task}
 			>
-				Add
+				+
 			</button>
 		</div>
 	)
