@@ -1,28 +1,27 @@
 import type { TaskProps } from '@/shared/types'
+import { DeleteOutlined } from '@ant-design/icons'
+import { Checkbox } from 'antd'
 import './Task.scss'
 import { TaskInfo } from './TaskInfo'
 
 export function Task({ task, onComplete, onRemove }: TaskProps) {
+	const priority = {
+		low: 'task__low',
+		medium: 'task__medium',
+		high: 'task__high'
+	}
+
 	return (
-		<div className="task">
+		<div className={`task ${priority[task.priority]}`}>
 			<div className="task__main">
 				<div className="task__line">
-					<input
-						type="checkbox"
-						name="completed"
-						id={`completed-${task.id}`}
+					<Checkbox
 						checked={task.completed}
-						className="task__checkbox"
 						onChange={() => onComplete(task.id)}
 					/>
 					<p className="task__label">{task.text}</p>
 				</div>
-				<button
-					className="task__delete-btn"
-					onClick={() => onRemove(task.id)}
-				>
-					&#128465;
-				</button>
+				<DeleteOutlined onClick={() => onRemove(task.id)} />
 			</div>
 			<TaskInfo
 				tagName={task.tagName}

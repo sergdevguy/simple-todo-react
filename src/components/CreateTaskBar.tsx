@@ -1,32 +1,44 @@
-import type { CreateTaskBarProps } from '@/shared/types'
+import type { CreateTaskBarProps, TaskPriority } from '@/shared/types'
+import { Input, Radio } from 'antd'
 import { useState } from 'react'
 import './CreateTaskBar.scss'
 
 export function CreateTaskBar({ addTask }: CreateTaskBarProps) {
 	const [task, setTask] = useState('')
 	const [tag, setTag] = useState('')
+	const [priority, setPriority] = useState<TaskPriority>('low')
 
 	function addTaskHandler() {
-		addTask(task, tag)
+		addTask(task, tag, priority)
 		setTask('')
 	}
 
 	return (
 		<div className="create-task-bar">
-			<input
-				type="text"
+			<Input
+				size="large"
 				placeholder="Create your task..."
-				className="create-task-bar__input"
-				onChange={e => setTask(e.target.value)}
 				value={task}
+				onChange={e => setTask(e.target.value)}
 			/>
-			<input
-				type="text"
+			<Input
+				size="large"
 				placeholder="Task tag..."
-				className="create-task-bar__input"
-				onChange={e => setTag(e.target.value)}
 				value={tag}
+				onChange={e => setTag(e.target.value)}
 			/>
+			<div className="create-task-bar__priority">
+				<span>Select priority</span>
+				<Radio.Group
+					value={priority}
+					options={[
+						{ value: 'low', label: 'low' },
+						{ value: 'medium', label: 'medium' },
+						{ value: 'high', label: 'high' }
+					]}
+					onChange={e => setPriority(e.target.value)}
+				/>
+			</div>
 			<button
 				className="create-task-bar__button"
 				onClick={addTaskHandler}

@@ -9,4 +9,10 @@
 	&:not(:first-child) {
 		margin-top: 10px;
 	}
+
+	&__title {
+		padding: 10px 0;
+		text-align: center;
+		font-weight: 300;
+	}
 }

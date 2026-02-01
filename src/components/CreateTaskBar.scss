@@ -2,12 +2,12 @@
 	display: flex;
 	flex-direction: column;
 	gap: 10px;
-	box-flex-group: red;
 
-	&__input {
-		width: 100%;
-		padding: 12px 8px;
-		font-size: 16px;
+	&__priority {
+		display: flex;
+		gap: 10px;
+		justify-content: space-between;
+		padding: 10px 0;
 	}
 
 	&__button {

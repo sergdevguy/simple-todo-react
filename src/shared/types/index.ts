@@ -1,8 +1,11 @@
 export type CreateTaskBarProps = {
-	addTask: (task: string, tag: string) => void
+	addTask: (task: string, tag: string, priority: TaskPriority) => void
 }
 
+export type TaskPriority = 'low' | 'medium' | 'high'
+
 export type TaskListProps = {
+	title: string
 	tasks: TaskType[]
 	onComplete: (id: string) => void
 	onRemove: (id: string) => void
@@ -21,4 +24,9 @@ export type TaskType = {
 	createdAt: string
 	tagName: string
 	priority: 'low' | 'medium' | 'high'
+}
+
+export type TaskInfoProps = {
+	tagName: string
+	createdAt: string
 }

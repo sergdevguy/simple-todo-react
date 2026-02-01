@@ -2,39 +2,28 @@
 	padding: 10px;
 	border-radius: 10px;
 	background: linear-gradient(to right, #f6faff, #eff4fe);
+	user-select: none;
+
+	&__medium {
+		background: linear-gradient(to right, #fefdef, #fcf5d8);
+	}
+
+	&__high {
+		background: linear-gradient(to right, #faede9, #fcdcd0);
+	}
 
 	&__main {
 		position: relative;
 		display: flex;
 		justify-content: space-between;
-		align-items: center;
+		align-items: flex-start;
 		width: 100%;
 		gap: 10px;
 	}
 
 	&__line {
 		display: flex;
+		align-items: flex-start;
 		gap: 10px;
-	}
-
-	&__checkbox {
-		width: 20px;
-		min-width: 20px;
-		height: 20px;
-		min-height: 20px;
-	}
-
-	&__delete-btn {
-		width: 30px;
-		height: 30px;
-		border-radius: 50%;
-		border: none;
-		background: #dddddd;
-		color: white;
-		transition: all 0.1s linear;
-
-		&:hover {
-			background: rgb(252, 169, 169);
-		}
 	}
 }
