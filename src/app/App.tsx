@@ -1,4 +1,4 @@
-import { Todo } from '@/components/Todo'
+import { Todo } from '@/pages/TodoPage/TodoPage'
 import './styles/App.scss'
 
 export function App() {

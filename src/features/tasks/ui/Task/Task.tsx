@@ -1,8 +1,8 @@
+import { TaskInfo } from '@/features/tasks/ui/TaskInfo/TaskInfo'
 import type { TaskProps } from '@/shared/types'
-import { DeleteOutlined } from '@ant-design/icons'
 import { Checkbox } from 'antd'
+import { TaskSettings } from '../TaskSettings/TaskSettings'
 import './Task.scss'
-import { TaskInfo } from './TaskInfo'
 
 export function Task({ task, onComplete, onRemove }: TaskProps) {
 	const priority = {
@@ -21,7 +21,8 @@ export function Task({ task, onComplete, onRemove }: TaskProps) {
 					/>
 					<p className="task__label">{task.text}</p>
 				</div>
-				<DeleteOutlined onClick={() => onRemove(task.id)} />
+				<TaskSettings />
+				{/* <DeleteOutlined onClick={() => onRemove(task.id)} /> */}
 			</div>
 			<TaskInfo
 				tagName={task.tagName}

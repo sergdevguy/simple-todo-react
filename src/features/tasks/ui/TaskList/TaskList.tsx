@@ -1,5 +1,5 @@
+import { Task } from '@/features/tasks/ui/Task/Task'
 import type { TaskListProps } from '@/shared/types'
-import { Task } from './Task'
 import './TaskList.scss'
 
 export function TaskList({
