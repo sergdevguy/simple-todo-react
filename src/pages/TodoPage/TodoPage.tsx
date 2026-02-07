@@ -1,3 +1,4 @@
+import { TEST_TASKS } from '@/data/testTasks'
 import { TaskList } from '@/features/tasks/ui/TaskList/TaskList'
 import type { TaskPriority, TaskType } from '@/shared/types'
 import { createTask } from '@/shared/utils/lib/utils'
@@ -6,23 +7,6 @@ import { CreateTaskBar } from '../../features/tasks/ui/CreateTaskBar/CreateTaskB
 import { Toolbar } from '../../features/tasks/ui/Toolbar/Toolbar'
 import { Modal } from '../../shared/utils/ui/Modal/Modal'
 import './TodoPage.scss'
-
-const TEST_TASKS = [
-	createTask('Do localstorage functional', 'work', 'high'),
-	createTask(
-		'Add "completed at" field, sort completed by "completed at" and reset "created at" if move completed task back',
-		'work',
-		'high'
-	),
-	createTask('Add filter', 'work', 'high'),
-	createTask(
-		'Create task description and open it on click on task',
-		'work',
-		'high'
-	),
-	createTask('Relax a lot', 'life', 'medium', true),
-	createTask('Play BG3', 'life', 'low')
-]
 
 export function Todo() {
 	const [tasks, setTasks] = useState<TaskType[]>(TEST_TASKS)
@@ -36,21 +20,17 @@ export function Todo() {
 	}
 
 	function handleAddTask(task: string, tag: string, priority: TaskPriority) {
-		setOpenCreateTaskModal(!openCreateTaskModal)
+		handleToggleCreateTaskModal()
 		const newTask = createTask(task.trim(), tag, priority)
 		setTasks([newTask, ...tasks])
 	}
 
 	function handleCompleteTask(id: string) {
-		setTasks(tasks =>
-			tasks.map(task =>
-				task.id === id ? { ...task, completed: !task.completed } : task
-			)
-		)
+		setTasks(tasks.map(t => (t.id === id ? { ...t, completed: true } : t)))
 	}
 
 	function handleRemoveTask(id: string) {
-		setTasks(tasks => tasks.filter(task => task.id !== id))
+		setTasks(tasks.filter(t => t.id !== id))
 	}
 
 	return (
